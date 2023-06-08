@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-const unsigned int interval = 1000;
+const unsigned int interval = 500;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
@@ -65,5 +65,12 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+	//{ datetime, "%s",           "%F %T" },
+	{ cpu_perc, "[CPU󰻠:%3s%]", NULL},
+	{ ram_perc, " [RAM󰘚:%3s%]", NULL},
+	{ temp, " |  %s°C", "/sys/class/thermal/thermal_zone0/temp"},
+	/* Gets speaker volume */
+	{ run_command, " |   %s", "pactl get-sink-volume @DEFAULT_SINK@ | grep -P -o -m 1 '\\d\\d%' | head -1"},
+	{ datetime, " | 󰭧 %s", "%a %b %d" },
+	{ datetime, " |  %s", "%r" },
 };

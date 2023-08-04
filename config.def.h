@@ -66,11 +66,11 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 	//{ datetime, "%s",           "%F %T" },
-	{ cpu_perc, "[CPU󰻠:%3s%]", NULL},
-	{ ram_perc, " [RAM󰘚:%3s%]", NULL},
-	{ temp, " |  %s°C", "/sys/class/thermal/thermal_zone0/temp"},
+	{ cpu_perc, "^c#e5e9f0^^b#A9444E^ 󰻠 ^b#BF616A^ %3s% ^d^", NULL},
+	{ ram_perc, "^c#e5e9f0^ ^b#C3674A^ 󰘚 ^b#D08770^ %3s% ^d^", NULL},
+	{ temp, "^c#3b4252^ ^b#E3B760^  ^b#EBCB8B^ %s°C ^d^", "/sys/class/thermal/thermal_zone0/temp"},
 	/* Gets speaker volume */
-	{ run_command, " |   %s", "pactl get-sink-volume @DEFAULT_SINK@ | grep -P -o -m 1 '\\d\\d%' | head -1"},
-	{ datetime, " | 󰭧 %s", "%a %b %d" },
-	{ datetime, " |  %s", "%r" },
+	{ run_command, "^c#e5e9f0^ ^b#89AC6B^  ^b#A3BE8C^ %s ^d^", "pactl get-sink-volume @DEFAULT_SINK@ | grep -P -o -m 1 '\\d?\\d?\\d?\\d%' | head -1"},
+	{ datetime, "^c#e5e9f0^ ^b#49688E^ 󰭧 ^b#5E81AC^ %s ^d^", "%a %b %d" },
+	{ datetime, "^c#e5e9f0^ ^b#A06F97^  ^b#B48EAD^ %s ^d^", "%r" },
 };
